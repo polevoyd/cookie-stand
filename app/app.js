@@ -29,7 +29,8 @@ var storePike =
 
       var unorderedListElements = document.createElement('ul');
 
-      for(var i = 0; i < oclock.length; i++) {
+      for(var k = 0; k < oclock.length; k++) {
+        
         var listElement = document.createElement('li');
         listElement.textContent = oclock[i];
         unorderedListElements.appendChild(listElement);
