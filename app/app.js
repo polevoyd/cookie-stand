@@ -16,8 +16,10 @@ var storePike =
 
     for (var i = 0; i < oclock.length; i++)
     {
+        var num = generateRndCustomersPerHour(minCustomersPerLocation, maxCustomersPerLocation) * avgCookiePerSale;
 
-    },
+        var s = oclock[i] + ': ' + num + ' cookies';
+    }
     
 
 
