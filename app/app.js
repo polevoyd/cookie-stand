@@ -1,26 +1,15 @@
 'use strict';
 
-// var turtle = {
-//   legs: 4,
-//   shell: true,
-//   age: 115,
-//   colors: ['turquoise'],
-//   weight: 25,
-//   ninja: true,
-//   snap: function() {
-//     console.log('cowabunga!');
-//   },
-// };
 
 
-var months = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
-var ulEl = document.createElement('ul');
+var oclock = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm', 'Total:'];
+var unorderedListElements = document.createElement('ul');
 
-for(var i = 0; i < months.length; i++) {
-  var liEl = document.createElement('li');
-  liEl.textContent = months[i];
-  ulEl.appendChild(liEl);
+for(var i = 0; i < oclock.length; i++) {
+  var listElement = document.createElement('li');
+  listElement.textContent = oclock[i];
+  unorderedListElements.appendChild(listElement);
 }
 
-var monthsSection = document.getElementById('months');
-monthsSection.appendChild(ulEl);
+var monthsSection = document.getElementById('stores');
+monthsSection.appendChild(unorderedListElements);
