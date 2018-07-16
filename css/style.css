@@ -1,0 +1,55 @@
+.center
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.data
+{
+    
+    font-size: 2em;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #FF784F;
+    text-shadow: -1px 2px #3A3042;
+}
+
+
+
+h1
+{
+    font-family: 'Gaegu', cursive;
+    font-size: 5em;
+    text-align: center;
+    color: #3A3042;
+    text-shadow: -5px 5px #FF784F;
+}
+
+.text
+{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #DB9D47;
+    text-shadow: -1px 1px #3A3042;
+    font-size: 2em;
+}
+
+
+
+body
+{
+    background: #EDFFD9;
+}
+
+
+/* 
+*DONE*A custom Google font for highlights *DONE*
+*DONE*A specified standard san-serif web font for data (such as Arial, Verdana, or Helvetica)
+*DONE*A specified standard serif web font for text (such as Georgia, Times, etc.)
+*DONE*Specified different font colors for all three font usages
+*DONE*A background color for the default page background (make sure font colors have good contrast and are readable on this background)
+A different background color for elements such boxes and tables (so make sure the font colors contrast against this well, too!)
+*DONE*Anything else you'd like to add related to style. But remember: simplicity, clarity, and consistency are good things in design.
+*DONE*Be thoughtful about layout and overall organization of the page.
+*DONE*Include all of the typical stuff that you'll find on the home page of a business: locations, hours, contact information, some text about how awesome the business is, etc. Be creative, and again, think about what is meaningful to a typical end user. */
