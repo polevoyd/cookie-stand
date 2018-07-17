@@ -1,7 +1,7 @@
 'use strict';
 
 
-var oclock = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm', 'Total:'];
+var oclock = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
 
 // store objects
 var storePike = 
@@ -21,25 +21,19 @@ var storePike =
     {
       var num = this.generateRndCustomersPerHour(this.minCustomersPerLocation, this.maxCustomersPerLocation) * this.avgCookiePerSale;
 
-      var s = oclock[i] + ': ' + num + ' cookies';
-
-
-
-
+      var s = oclock[i] + ': ' + Math.floor(num) + ' cookies';
 
       var unorderedListElements = document.createElement('ul');
 
-      for(var k = 0; k < oclock.length; k++) {
-        
-        var listElement = document.createElement('li');
-        listElement.textContent = oclock[i];
-        unorderedListElements.appendChild(listElement);
-      }
-  
+      var listElement = document.createElement('li');
+      listElement.textContent = s;
+      unorderedListElements.appendChild(listElement);
+    
       var monthsSection = document.getElementById('stores');
       monthsSection.appendChild(unorderedListElements);
 
 
+      
     }
   }
 
@@ -48,6 +42,6 @@ var storePike =
 
 
 };
-
+storePike.generateString();
 
 //var storesArr = ['1st and Pike', 'SeaTac Airport', 'Seattle Center', 'Capitol Hill', 'Alki'];
