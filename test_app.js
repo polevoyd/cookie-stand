@@ -19,3 +19,9 @@ var demi = new Dog('Demi', 'black', 'colie', 'dem-dem');
 
 
 // create a document
+
+
+// 1 We need a table
+// 2 create a row TR
+// 3 create TD (hours) - loop inside of a loop: step to row, add cell, run loop with creating cells, then step to next row
+// methods will be prototype
