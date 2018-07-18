@@ -17,16 +17,18 @@ function Store(name, minCus, maxCus, avgCookieSale)
 
   storesArr.push(this);
 
-  Store.prototype.generateRndCustomersPerHour = function(min, max)
-  {
-    return Math.random() * (max - min) + min;
-  };
-
-  Store.prototype.generateAvgCookieSale = function()
-  {
-    return Math.floor(this.generateRndCustomersPerHour(this.minCus, this.maxCus) * this.avgCookieSale);
-  };
 }
+
+Store.prototype.generateRndCustomersPerHour = function(min, max)
+{
+  return Math.random() * (max - min) + min;
+};
+
+Store.prototype.generateAvgCookieSale = function()
+{
+  return Math.floor(this.generateRndCustomersPerHour(this.minCus, this.maxCus) * this.avgCookieSale);
+};
+
 
 /*******************************************************************************************/
 /**************************************END OF CLASS*****************************************/
@@ -123,6 +125,24 @@ for (var st of storesArr)
 
 //-----------------------------------------------------connect table to a page
 document.body.appendChild(tableElement);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* DOM table manipulation */
