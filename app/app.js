@@ -14,8 +14,6 @@ function Store(name, minCus, maxCus, avgCookieSale)
   this.minCus = minCus;
   this.maxCus = maxCus;
   this.avgCookieSale = avgCookieSale;
-  this.total = 0;
-  this.hoursSales = [];
 
   storesArr.push(this);
 
@@ -79,6 +77,8 @@ tableElement.appendChild(tableHeadElement);
 // for each store we create a row
 for (var st of storesArr)
 {
+  // our total sum
+  var totalSum = 0;
   // create a row
   var trElement = document.createElement('tr');
   //-----------------------------------------------------first cell with a name
@@ -94,7 +94,6 @@ for (var st of storesArr)
   // run another loop through hours and create a cell for each
   for (var hr of hours)
   {
-    var totalSum = 0;
     // create a cell
     var tdElement = document.createElement('td');
     // generate a text data for a cell
