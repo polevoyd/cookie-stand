@@ -2,6 +2,7 @@
 
 
 var hours = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm'];
+var totals = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 var storesArr = [];
 
 /*******************************************************************************************/
@@ -16,7 +17,6 @@ function Store(name, minCus, maxCus, avgCookieSale)
   this.avgCookieSale = avgCookieSale;
 
   storesArr.push(this);
-
 }
 
 Store.prototype.generateRndCustomersPerHour = function(min, max)
@@ -71,6 +71,30 @@ function renderTableHead(tableElement)
   tableElement.appendChild(tableHeadElement);
 }
 
+/*--------------------------create and render a table footer-------------------------------*/
+
+function renderTableFooter(tableElement)
+{
+  // creating a footer row
+  var tableFooterElement = document.createElement('tr');
+  // put first cell with 'Totals:'
+  var tdFooterElement = document.createElement('td');
+  tdFooterElement.appendChild(document.createTextNode('Total:'));
+  // add cell to a row
+  tableFooterElement.appendChild(tdFooterElement);
+  
+  // run array with totals and create a cell for each
+  for (var index in totals)
+  {
+    var tdFooterTotalElement = document.createElement('td');
+    tdFooterTotalElement.appendChild(document.createTextNode(totals[index]));
+    tableFooterElement.appendChild(tdFooterTotalElement);
+  }
+
+  // tableHeadElement.appendChild(tdFirstTotalElement);
+  tableElement.appendChild(tableFooterElement);
+}
+
 /*-------------------------rendering a store object in a table-----------------------------*/
 
 function renderStore(storeObj)
@@ -118,6 +142,29 @@ function renderStore(storeObj)
 /*******************************************************************************************/
 
 
+
+/*******************************************************************************************/
+
+// connecting a the form
+var formElement = document.getElementById('main-form');
+formElement.addEventListener('submit', function(event)
+{
+  event.preventDefault();
+  // console.log('something happened!');
+
+  var store_name = event.target.store_name.value;
+  var store_min = event.target.store_min.value;
+  var store_max = event.target.store_max.value;
+  var store_avg = event.target.store_avg.value;
+
+  new Store(store_name, store_min, store_max, store_avg);
+
+  renderStore(storesArr[storesArr.length-1]);
+  renderTableFooter(tableElement);
+});
+
+
+
 // attach html table to a variable
 var tableElement = document.getElementById('storesData');
 
@@ -128,8 +175,10 @@ renderTableHead(tableElement);
 for (var st of storesArr)
 {
   renderStore(st);
-
 }
+
+// render a table footer
+renderTableFooter(tableElement);
 
 
 
