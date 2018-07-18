@@ -75,20 +75,17 @@ function renderTableHead(tableElement)
 }
 
 
-
+// rendering a store object in a table
 function renderStore(storeObj)
 {
   // our total sum
   var totalSum = 0;
   // create a row
   var trElement = document.createElement('tr');
-  //-----------------------------------------------------first cell with a name
   // create a cell
   var tdStoreName = document.createElement('td');
-  // generate a text data for a cell
-  var storeName = document.createTextNode(storeObj.name);
-  // connect text to a cell
-  tdStoreName.appendChild(storeName);
+  // create a data and connect it to a cell
+  tdStoreName.appendChild(document.createTextNode(storeObj.name));
   // connect cell to a row
   trElement.appendChild(tdStoreName);
   //-----------------------------------------------------next cells with a data
