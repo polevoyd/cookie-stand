@@ -37,16 +37,37 @@ Store.prototype.generateAvgCookieSale = function()
 
 // instance of store
 new Store('1st and Pike', 23, 65, 6.3);
-new Store('SeaTac Airport', 3, 24, 1.2);
-new Store('Seattle Center', 11, 38, 3.7);
-new Store('Capitol Hill', 20, 38, 2.3);
-new Store('Alki', 2, 16, 4.6);
+// new Store('SeaTac Airport', 3, 24, 1.2);
+// new Store('Seattle Center', 11, 38, 3.7);
+// new Store('Capitol Hill', 20, 38, 2.3);
+// new Store('Alki', 2, 16, 4.6);
 
 
 
 /*******************************************************************************************/
 /***********************************FUNCTION DEFINITIONS************************************/
 /*******************************************************************************************/
+
+
+
+// </thead>
+//   <tfoot>
+//     <tr>
+//       <td>Sum</td>
+//       <td>$180</td>
+//     </tr>
+//   </tfoot>
+
+
+
+
+
+
+
+
+
+
+
 
 /*----------------------------create and render a table head-------------------------------*/
 
@@ -82,7 +103,7 @@ function renderTableFooter(tableElement)
   tdFooterElement.appendChild(document.createTextNode('Total:'));
   // add cell to a row
   tableFooterElement.appendChild(tdFooterElement);
-  
+
   // run array with totals and create a cell for each
   for (var index in totals)
   {
@@ -91,7 +112,6 @@ function renderTableFooter(tableElement)
     tableFooterElement.appendChild(tdFooterTotalElement);
   }
 
-  // tableHeadElement.appendChild(tdFirstTotalElement);
   tableElement.appendChild(tableFooterElement);
 }
 
@@ -111,14 +131,20 @@ function renderStore(storeObj)
   trElement.appendChild(tdStoreName);
 
   // run another loop through hours and create a cell for each
-  for (var hr of hours)
+  for (var i in hours)
   {
     // create a cell
     var tdElement = document.createElement('td');
     // generate a text data for a cell
     var temp = storeObj.generateAvgCookieSale();
+    // each time we generate a random number:
+    // 1 - we add it to a 'totalSum' - which it will be on a left
     var textElement = document.createTextNode(temp);
     totalSum += temp;
+    // 2 - we add it to a same index array 'totals' - which will be at the bottom
+    totals[i] += temp;
+    // 3 - last element of 'totals' will be a sum of all previous calculated totals
+    totals[totals.length-1] += temp;
     // connect text to a cell
     tdElement.appendChild(textElement);
     // connect cell to a row
@@ -178,7 +204,7 @@ for (var st of storesArr)
 }
 
 // render a table footer
-renderTableFooter(tableElement);
+// renderTableFooter(tableElement);
 
 
 
