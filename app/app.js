@@ -52,18 +52,17 @@ var tableElement = document.getElementById('storesData');
 //-----------------------------------------------------first string:
 // 2.a creating a first row with hours
 var tableHeadElement = document.createElement('tr');
-//document.getElementsByTagName('tr').setAttribute('classBold');
+
 //-----------------------------------------------------empty cell
-// create a cell
-var tdEmptyElement = document.createElement('td');
+// create a cell (can skip this line and make it in one line)
+//var tdEmptyElement = document.createElement('td');
 // connect cell to a row
-tableHeadElement.appendChild(tdEmptyElement);
+tableHeadElement.appendChild(document.createElement('td'));
 //-----------------------------------------------------hours part
 for (var hr of hours)
 {
   var tdHeadElement = document.createElement('td');
-  var textHeadElement = document.createTextNode(hr);
-  tdHeadElement.appendChild(textHeadElement);
+  tdHeadElement.appendChild(document.createTextNode(hr));
   tableHeadElement.appendChild(tdHeadElement);
 }
 //-----------------------------------------------------total part
@@ -126,7 +125,9 @@ for (var st of storesArr)
 }
 
 //-----------------------------------------------------connect table to a page
-document.body.appendChild(tableElement);
+// we dont need to look and connect cause we did it in the beginning
+// document.body.appendChild(tableElement);
+// document.getElementById('storesData').appendChild(tableElement);
 
 /*******************************************************************************************/
 /**************************************END OF TABLE*****************************************/

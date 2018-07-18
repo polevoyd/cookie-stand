@@ -13,6 +13,7 @@ function Store(name, minCus, maxCus, avgCookieSale)
     this.minCus = minCus;
     this.maxCus = maxCus;
     this.avgCookieSale = avgCookieSale;
+    
 
     storesArr.push(this);
 
