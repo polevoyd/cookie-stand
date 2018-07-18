@@ -50,6 +50,7 @@ var tableElement = document.getElementById('storesData');
 //-----------------------------------------------------first string:
 // 2.a creating a first row with hours
 var tableHeadElement = document.createElement('tr');
+//document.getElementsByTagName('tr').setAttribute('classBold');
 //-----------------------------------------------------empty cell
 // create a cell
 var tdEmptyElement = document.createElement('td');

@@ -18,7 +18,16 @@
     text-shadow: -1px 2px #3A3042;
 }
 
+tr:first-child
+{
+    font-weight: bold;
+}
 
+table, th, td 
+{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
 
 h1
 {
