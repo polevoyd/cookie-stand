@@ -48,47 +48,44 @@ new Store('Alki', 2, 16, 4.6);
 /***********************************FUNCTION DEFINITIONS************************************/
 /*******************************************************************************************/
 
-// 1. assigning variable to a table in html
+/*----------------------------create and render a table head-------------------------------*/
 
-
-// 2. create and render a table head
 function renderTableHead(tableElement)
 {
-  //-----------------------------------------------------first string:
-  // 2.a creating a first row with hours
+  // creating a first row with hours
   var tableHeadElement = document.createElement('tr');
-  //-----------------------------------------------------empty cell
+  // put empty cell first
   tableHeadElement.appendChild(document.createElement('td'));
-  //-----------------------------------------------------hours part
+  // run array with hours and create a cell for each
   for (var hr of hours)
   {
     var tdHeadElement = document.createElement('td');
-    // tdHeadElement.textContent(hr); // has to work but doesn't
+    // tdHeadElement.textContent(hr); // has to work but doesn't?
     tdHeadElement.appendChild(document.createTextNode(hr));
     tableHeadElement.appendChild(tdHeadElement);
   }
-  //-----------------------------------------------------total cell
+  // last cell will be a total
   var tdFirstTotalElement = document.createElement('td');
   tdFirstTotalElement.appendChild(document.createTextNode('Daily Location Total'));
   tableHeadElement.appendChild(tdFirstTotalElement);
   tableElement.appendChild(tableHeadElement);
 }
 
+/*-------------------------rendering a store object in a table-----------------------------*/
 
-// rendering a store object in a table
 function renderStore(storeObj)
 {
-  // our total sum
+  // for each store create a total value
   var totalSum = 0;
   // create a row
   var trElement = document.createElement('tr');
-  // create a cell
+  // create a first cell with a name of store
   var tdStoreName = document.createElement('td');
   // create a data and connect it to a cell
   tdStoreName.appendChild(document.createTextNode(storeObj.name));
   // connect cell to a row
   trElement.appendChild(tdStoreName);
-  //-----------------------------------------------------next cells with a data
+
   // run another loop through hours and create a cell for each
   for (var hr of hours)
   {
@@ -103,30 +100,22 @@ function renderStore(storeObj)
     // connect cell to a row
     trElement.appendChild(tdElement);
   }
-  //-----------------------------------------------------Total calculation
 
-  // create a cell
-  var tdTotalElement= document.createElement('td');
+  // create a last cell with a total (calculated in previous block)
+  var tdTotalElement = document.createElement('td');
   // generate a text data for a cell
   var totalTextElement = document.createTextNode(totalSum);
   // connect text to a cell
   tdTotalElement.appendChild(totalTextElement);
   // connect cell to a row
   trElement.appendChild(tdTotalElement);
-  
-
+  // connect row to a table
   tableElement.appendChild(trElement);
 }
 
 /*******************************************************************************************/
 /********************************END OF FUNCTION DEFINITIONS********************************/
 /*******************************************************************************************/
-
-
-
-
-
-
 
 
 // attach html table to a variable
