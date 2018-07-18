@@ -29,89 +29,66 @@ Store.prototype.generateAvgCookieSale = function()
   return Math.floor(this.generateRndCustomersPerHour(this.minCus, this.maxCus) * this.avgCookieSale);
 };
 
-
-/*******************************************************************************************/
-/**************************************END OF CLASS*****************************************/
-/*******************************************************************************************/
-
-
-// instance of store
-new Store('1st and Pike', 23, 65, 6.3);
-// new Store('SeaTac Airport', 3, 24, 1.2);
-// new Store('Seattle Center', 11, 38, 3.7);
-// new Store('Capitol Hill', 20, 38, 2.3);
-// new Store('Alki', 2, 16, 4.6);
-
-
-
 /*******************************************************************************************/
 /***********************************FUNCTION DEFINITIONS************************************/
 /*******************************************************************************************/
-
-
-
-// </thead>
-//   <tfoot>
-//     <tr>
-//       <td>Sum</td>
-//       <td>$180</td>
-//     </tr>
-//   </tfoot>
-
-
-
-
-
-
-
-
-
-
-
 
 /*----------------------------create and render a table head-------------------------------*/
 
 function renderTableHead(tableElement)
 {
+  // creating a table header element
+  var tableHeaderElement = document.createElement('thead');
   // creating a first row with hours
-  var tableHeadElement = document.createElement('tr');
+  var trTableHeadElement = document.createElement('tr');
   // put empty cell first
-  tableHeadElement.appendChild(document.createElement('td'));
+  trTableHeadElement.appendChild(document.createElement('td'));
   // run array with hours and create a cell for each
   for (var hr of hours)
   {
     var tdHeadElement = document.createElement('td');
     // tdHeadElement.textContent(hr); // has to work but doesn't?
     tdHeadElement.appendChild(document.createTextNode(hr));
-    tableHeadElement.appendChild(tdHeadElement);
+    trTableHeadElement.appendChild(tdHeadElement);
   }
   // last cell will be a total
   var tdFirstTotalElement = document.createElement('td');
   tdFirstTotalElement.appendChild(document.createTextNode('Daily Location Total'));
-  tableHeadElement.appendChild(tdFirstTotalElement);
-  tableElement.appendChild(tableHeadElement);
+  trTableHeadElement.appendChild(tdFirstTotalElement);
+  tableHeaderElement.appendChild(trTableHeadElement);
+  tableElement.appendChild(tableHeaderElement);
 }
 
 /*--------------------------create and render a table footer-------------------------------*/
 
 function renderTableFooter(tableElement)
 {
+  // if footer already exist - delete it first
+  if (document.getElementsByTagName('tfoot') !== undefined)
+  {
+    document.getElementById('storesData').deleteTFoot();
+  }
+ 
+  // creating a table footer
+  var tableFooterElement = document.createElement('tfoot');
   // creating a footer row
-  var tableFooterElement = document.createElement('tr');
+  var trTableFooterElement = document.createElement('tr');
   // put first cell with 'Totals:'
   var tdFooterElement = document.createElement('td');
   tdFooterElement.appendChild(document.createTextNode('Total:'));
   // add cell to a row
-  tableFooterElement.appendChild(tdFooterElement);
+  trTableFooterElement.appendChild(tdFooterElement);
 
   // run array with totals and create a cell for each
   for (var index in totals)
   {
     var tdFooterTotalElement = document.createElement('td');
     tdFooterTotalElement.appendChild(document.createTextNode(totals[index]));
-    tableFooterElement.appendChild(tdFooterTotalElement);
+    trTableFooterElement.appendChild(tdFooterTotalElement);
   }
-
+  // append row to a footer
+  tableFooterElement.appendChild(trTableFooterElement);
+  // append footer to a table
   tableElement.appendChild(tableFooterElement);
 }
 
@@ -164,11 +141,7 @@ function renderStore(storeObj)
 }
 
 /*******************************************************************************************/
-/********************************END OF FUNCTION DEFINITIONS********************************/
-/*******************************************************************************************/
-
-
-
+/*************************************FORMS CONNECTING**************************************/
 /*******************************************************************************************/
 
 // connecting a the form
@@ -176,7 +149,6 @@ var formElement = document.getElementById('main-form');
 formElement.addEventListener('submit', function(event)
 {
   event.preventDefault();
-  // console.log('something happened!');
 
   var store_name = event.target.store_name.value;
   var store_min = event.target.store_min.value;
@@ -190,6 +162,16 @@ formElement.addEventListener('submit', function(event)
 });
 
 
+/*******************************************************************************************/
+/*******************************************END*********************************************/
+/*******************************************************************************************/
+
+// instance of store
+new Store('1st and Pike', 23, 65, 6.3);
+new Store('SeaTac Airport', 3, 24, 1.2);
+new Store('Seattle Center', 11, 38, 3.7);
+new Store('Capitol Hill', 20, 38, 2.3);
+new Store('Alki', 2, 16, 4.6);
 
 // attach html table to a variable
 var tableElement = document.getElementById('storesData');
@@ -204,201 +186,5 @@ for (var st of storesArr)
 }
 
 // render a table footer
-// renderTableFooter(tableElement);
+renderTableFooter(tableElement);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// /*******************************************************************************************/
-// /***********************************BEGINNING OF TABLE**************************************/
-// /*******************************************************************************************/
-// // 1. creating a table
-// var tableElement = document.getElementById('storesData');
-// //-----------------------------------------------------first string:
-// // 2.a creating a first row with hours
-// var tableHeadElement = document.createElement('tr');
-
-// //-----------------------------------------------------empty cell
-// // create a cell (can skip this line and make it in one line)
-// //var tdEmptyElement = document.createElement('td');
-// // connect cell to a row
-// tableHeadElement.appendChild(document.createElement('td'));
-// //-----------------------------------------------------hours part
-// for (var hr of hours)
-// {
-//   var tdHeadElement = document.createElement('td');
-//   tdHeadElement.appendChild(document.createTextNode(hr));
-//   tableHeadElement.appendChild(tdHeadElement);
-// }
-// //-----------------------------------------------------total part
-// // create a cell
-// var tdFirstTotalElement = document.createElement('td');
-// // generate a text data for a cell
-// var totalFirstTextElement = document.createTextNode('Daily Location Total');
-// // connect text to a cell
-// tdFirstTotalElement.appendChild(totalFirstTextElement);
-// // connect cell to a row
-// tableHeadElement.appendChild(tdFirstTotalElement);
-// // connect row to a table
-// tableElement.appendChild(tableHeadElement);
-// //-----------------------------------------------------rows in the middle
-// // for each store we create a row
-// for (var st of storesArr)
-// {
-//   // our total sum
-//   var totalSum = 0;
-//   // create a row
-//   var trElement = document.createElement('tr');
-//   //-----------------------------------------------------first cell with a name
-//   // create a cell
-//   var tdStoreName = document.createElement('td');
-//   // generate a text data for a cell
-//   var storeName = document.createTextNode(st.name);
-//   // connect text to a cell
-//   tdStoreName.appendChild(storeName);
-//   // connect cell to a row
-//   trElement.appendChild(tdStoreName);
-//   //-----------------------------------------------------next cells with a data
-//   // run another loop through hours and create a cell for each
-//   for (var hr of hours)
-//   {
-//     // create a cell
-//     var tdElement = document.createElement('td');
-//     // generate a text data for a cell
-//     var temp = st.generateAvgCookieSale();
-//     var textElement = document.createTextNode(temp);
-//     totalSum += temp;
-//     // connect text to a cell
-//     tdElement.appendChild(textElement);
-//     // connect cell to a row
-//     trElement.appendChild(tdElement);
-//   }
-//   //-----------------------------------------------------Total calculation
-
-//   // create a cell
-//   var tdTotalElement= document.createElement('td');
-//   // generate a text data for a cell
-//   var totalTextElement = document.createTextNode(totalSum);
-//   // connect text to a cell
-//   tdTotalElement.appendChild(totalTextElement);
-//   // connect cell to a row
-//   trElement.appendChild(tdTotalElement);
-  
-//   //-----------------------------------------------------Connect everything to table
-//   // connect row to a table
-//   tableElement.appendChild(trElement);
-// }
-
-// //-----------------------------------------------------connect table to a page
-// // we dont need to look and connect cause we did it in the beginning
-// // document.body.appendChild(tableElement);
-// // document.getElementById('storesData').appendChild(tableElement);
-
-// /*******************************************************************************************/
-// /**************************************END OF TABLE*****************************************/
-// /*******************************************************************************************/
-
-
-
-
-
-
-
-
-/* DOM table manipulation */
-// // creating a table
-// var tableElement = document.getElementById('storesData');
-// // create a row
-// var trElement = document.createElement('tr');
-// // create a cell
-// var tdElement = document.createElement('td');
-// // create a data for a cell
-// var textElement = document.createTextNode(storesArr[0].generateAvgCookieSale());
-// // connect text to a cell
-// tdElement.appendChild(textElement);
-// // connect cell to a row
-// trElement.appendChild(tdElement);
-// // connect row to a table
-// tableElement.appendChild(trElement);
-// // connect table to a page
-// document.body.appendChild(tableElement);
-
-
-
-
-
-
-
-
-// var storePike =
-// {
-//   storeName: '1st and Pike',
-//   minCustomersPerLocation: 23,
-//   maxCustomersPerLocation: 65,
-//   avgCookiePerSale: 6.3,
-//   total: 0,
-
-//   generateRndCustomersPerHour: function (min, max)
-//   {
-//     return Math.random() * (max - min) + min;
-//   },
-
-//   generateString: function ()
-//   {
-//     var monthsSection = document.getElementById('stores');
-
-//     // name of the store
-//     var storeNameElement = document.createElement('h3');
-//     storeNameElement.textContent = this.storeName;
-//     monthsSection.appendChild(storeNameElement);
-
-//     // listElement.textContent = this.storeName;
-//     for (var i = 0; i < oclock.length; i++)
-//     {
-//       // creating a number and a string to pring
-//       var num = this.generateRndCustomersPerHour(this.minCustomersPerLocation, this.maxCustomersPerLocation) * this.avgCookiePerSale;
-//       var s = oclock[i] + ': ' + Math.floor(num) + ' cookies';
-//       this.total += num;
-
-//       // creating unordered list to put values in
-//       var unorderedListElements = document.createElement('ul');
-//       var listElement = document.createElement('li');
-//       listElement.textContent = s;
-//       unorderedListElements.appendChild(listElement);
-//       monthsSection.appendChild(unorderedListElements);
-//     }
-
-//     listElement.textContent = 'Total: ' + Math.floor(this.total) + ' cookies';
-//   }
-// };
-// storePike.generateString();
