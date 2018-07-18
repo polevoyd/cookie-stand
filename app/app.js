@@ -45,40 +45,38 @@ new Store('Alki', 2, 16, 4.6);
 
 
 /*******************************************************************************************/
-/***********************************BEGINNING OF TABLE**************************************/
+/***********************************FUNCTION DEFINITIONS************************************/
 /*******************************************************************************************/
-// 1. creating a table
-var tableElement = document.getElementById('storesData');
-//-----------------------------------------------------first string:
-// 2.a creating a first row with hours
-var tableHeadElement = document.createElement('tr');
 
-//-----------------------------------------------------empty cell
-// create a cell (can skip this line and make it in one line)
-//var tdEmptyElement = document.createElement('td');
-// connect cell to a row
-tableHeadElement.appendChild(document.createElement('td'));
-//-----------------------------------------------------hours part
-for (var hr of hours)
+// 1. assigning variable to a table in html
+
+
+// 2. create and render a table head
+function renderTableHead(tableElement)
 {
-  var tdHeadElement = document.createElement('td');
-  tdHeadElement.appendChild(document.createTextNode(hr));
-  tableHeadElement.appendChild(tdHeadElement);
+  //-----------------------------------------------------first string:
+  // 2.a creating a first row with hours
+  var tableHeadElement = document.createElement('tr');
+  //-----------------------------------------------------empty cell
+  tableHeadElement.appendChild(document.createElement('td'));
+  //-----------------------------------------------------hours part
+  for (var hr of hours)
+  {
+    var tdHeadElement = document.createElement('td');
+    // tdHeadElement.textContent(hr); // has to work but doesn't
+    tdHeadElement.appendChild(document.createTextNode(hr));
+    tableHeadElement.appendChild(tdHeadElement);
+  }
+  //-----------------------------------------------------total cell
+  var tdFirstTotalElement = document.createElement('td');
+  tdFirstTotalElement.appendChild(document.createTextNode('Daily Location Total'));
+  tableHeadElement.appendChild(tdFirstTotalElement);
+  tableElement.appendChild(tableHeadElement);
 }
-//-----------------------------------------------------total part
-// create a cell
-var tdFirstTotalElement = document.createElement('td');
-// generate a text data for a cell
-var totalFirstTextElement = document.createTextNode('Daily Location Total');
-// connect text to a cell
-tdFirstTotalElement.appendChild(totalFirstTextElement);
-// connect cell to a row
-tableHeadElement.appendChild(tdFirstTotalElement);
-// connect row to a table
-tableElement.appendChild(tableHeadElement);
-//-----------------------------------------------------rows in the middle
-// for each store we create a row
-for (var st of storesArr)
+
+
+
+function renderStore(storeObj)
 {
   // our total sum
   var totalSum = 0;
@@ -88,7 +86,7 @@ for (var st of storesArr)
   // create a cell
   var tdStoreName = document.createElement('td');
   // generate a text data for a cell
-  var storeName = document.createTextNode(st.name);
+  var storeName = document.createTextNode(storeObj.name);
   // connect text to a cell
   tdStoreName.appendChild(storeName);
   // connect cell to a row
@@ -100,7 +98,7 @@ for (var st of storesArr)
     // create a cell
     var tdElement = document.createElement('td');
     // generate a text data for a cell
-    var temp = st.generateAvgCookieSale();
+    var temp = storeObj.generateAvgCookieSale();
     var textElement = document.createTextNode(temp);
     totalSum += temp;
     // connect text to a cell
@@ -119,18 +117,12 @@ for (var st of storesArr)
   // connect cell to a row
   trElement.appendChild(tdTotalElement);
   
-  //-----------------------------------------------------Connect everything to table
-  // connect row to a table
+
   tableElement.appendChild(trElement);
 }
 
-//-----------------------------------------------------connect table to a page
-// we dont need to look and connect cause we did it in the beginning
-// document.body.appendChild(tableElement);
-// document.getElementById('storesData').appendChild(tableElement);
-
 /*******************************************************************************************/
-/**************************************END OF TABLE*****************************************/
+/********************************END OF FUNCTION DEFINITIONS********************************/
 /*******************************************************************************************/
 
 
@@ -140,8 +132,140 @@ for (var st of storesArr)
 
 
 
+// attach html table to a variable
+var tableElement = document.getElementById('storesData');
+
+// render a table head
+renderTableHead(tableElement);
+
+// render each store
+for (var st of storesArr)
+{
+  renderStore(st);
+
+}
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// /*******************************************************************************************/
+// /***********************************BEGINNING OF TABLE**************************************/
+// /*******************************************************************************************/
+// // 1. creating a table
+// var tableElement = document.getElementById('storesData');
+// //-----------------------------------------------------first string:
+// // 2.a creating a first row with hours
+// var tableHeadElement = document.createElement('tr');
+
+// //-----------------------------------------------------empty cell
+// // create a cell (can skip this line and make it in one line)
+// //var tdEmptyElement = document.createElement('td');
+// // connect cell to a row
+// tableHeadElement.appendChild(document.createElement('td'));
+// //-----------------------------------------------------hours part
+// for (var hr of hours)
+// {
+//   var tdHeadElement = document.createElement('td');
+//   tdHeadElement.appendChild(document.createTextNode(hr));
+//   tableHeadElement.appendChild(tdHeadElement);
+// }
+// //-----------------------------------------------------total part
+// // create a cell
+// var tdFirstTotalElement = document.createElement('td');
+// // generate a text data for a cell
+// var totalFirstTextElement = document.createTextNode('Daily Location Total');
+// // connect text to a cell
+// tdFirstTotalElement.appendChild(totalFirstTextElement);
+// // connect cell to a row
+// tableHeadElement.appendChild(tdFirstTotalElement);
+// // connect row to a table
+// tableElement.appendChild(tableHeadElement);
+// //-----------------------------------------------------rows in the middle
+// // for each store we create a row
+// for (var st of storesArr)
+// {
+//   // our total sum
+//   var totalSum = 0;
+//   // create a row
+//   var trElement = document.createElement('tr');
+//   //-----------------------------------------------------first cell with a name
+//   // create a cell
+//   var tdStoreName = document.createElement('td');
+//   // generate a text data for a cell
+//   var storeName = document.createTextNode(st.name);
+//   // connect text to a cell
+//   tdStoreName.appendChild(storeName);
+//   // connect cell to a row
+//   trElement.appendChild(tdStoreName);
+//   //-----------------------------------------------------next cells with a data
+//   // run another loop through hours and create a cell for each
+//   for (var hr of hours)
+//   {
+//     // create a cell
+//     var tdElement = document.createElement('td');
+//     // generate a text data for a cell
+//     var temp = st.generateAvgCookieSale();
+//     var textElement = document.createTextNode(temp);
+//     totalSum += temp;
+//     // connect text to a cell
+//     tdElement.appendChild(textElement);
+//     // connect cell to a row
+//     trElement.appendChild(tdElement);
+//   }
+//   //-----------------------------------------------------Total calculation
+
+//   // create a cell
+//   var tdTotalElement= document.createElement('td');
+//   // generate a text data for a cell
+//   var totalTextElement = document.createTextNode(totalSum);
+//   // connect text to a cell
+//   tdTotalElement.appendChild(totalTextElement);
+//   // connect cell to a row
+//   trElement.appendChild(tdTotalElement);
+  
+//   //-----------------------------------------------------Connect everything to table
+//   // connect row to a table
+//   tableElement.appendChild(trElement);
+// }
+
+// //-----------------------------------------------------connect table to a page
+// // we dont need to look and connect cause we did it in the beginning
+// // document.body.appendChild(tableElement);
+// // document.getElementById('storesData').appendChild(tableElement);
+
+// /*******************************************************************************************/
+// /**************************************END OF TABLE*****************************************/
+// /*******************************************************************************************/
 
 
 
@@ -167,27 +291,6 @@ for (var st of storesArr)
 // tableElement.appendChild(trElement);
 // // connect table to a page
 // document.body.appendChild(tableElement);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
