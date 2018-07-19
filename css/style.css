@@ -1,3 +1,34 @@
+/* 
+251605 brown
+c57b57 deer
+f1ab86 tumbleweed
+f7dba7 tuscan
+9cafb7  
+
+locations with addresses, hours open, contact information, 
+
+About Us (company history and mission), 
+Merchandise (sales of t-shirts, mugs, stickers, etc.)
+*/
+
+#navbar
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    align-content: center;
+    text-align: center;
+    width: 100%;
+    padding: 2em 2em 2em 2em;
+
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
 header
 {
     display: flex;
@@ -32,11 +63,40 @@ header
 .data
 {
     /* border: 1px solid #3A3042; */
-    font-size: 2em;
+    font-size: 1em;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
-    color: #FF784F;
-    text-shadow: -1px 2px #3A3042;
+    color: #c57b57;
+    text-shadow: -1px 1px #3A3042;
+    display: inline;
+}
+
+.products
+{
+    margin: 1em 1em 1em 1em;
+    margin-bottom: 4em;
+}
+
+.pics_borders
+{
+    height: 100px;
+    width: 150px;
+    margin-right: 1em;
+}
+
+.product_box
+{
+    width: 93%;
+    border: 5px solid #f1ab86;
+    border-radius: 1em;
+    padding: 1em 1em 3em 1em;
+    margin: 1em;
+    /* align-content: center; */
+}
+
+p
+{
+    padding-top: 0.25em;
 }
 
 tr:first-child
@@ -61,11 +121,6 @@ table, th, td
 
 }
 
-input, label {
-    /* can be in a block display or inline */
-    /* display:block; */
-}
-
 h2
 {
     margin: 1em 1em 1em 1em;
@@ -78,20 +133,65 @@ h1
     font-size: 5em;
     text-align: center;
     color: #3A3042;
-    text-shadow: -5px 5px #FF784F;
+    text-shadow: -5px 5px #f1ab86;
 }
 
 .text
 {
     font-family: Georgia, 'Times New Roman', Times, serif;
-    color: #DB9D47;
-    text-shadow: -1px 1px #3A3042;
+    color: #f1ab86;
+    text-shadow: -1px 1px #251605;
     font-size: 2em;
 }
-
-
 
 body
 {
     background: #EDFFD9;
+}
+
+.tablepic
+{
+    height: 2em;
+    width: 6em;
+    border:solid 1em #3A3042;
+}
+
+ul, li
+{
+    margin: 1em 1em 1em 1em;
+}
+
+/* locations section */
+.location
+{
+    display: flex;
+    list-style: none;
+    text-align: center;
+    border: #3A3042;
+    align-content: center;
+}
+
+/* quotes from a clients */
+.quotes
+{
+    display: flex;
+    list-style: none;
+    text-align: center;
+    border: #3A3042;
+}
+ /* each particular quote  */
+.quotes_elements
+{
+    font-style: italic;
+    font-family: 'Gaegu', cursive;
+    color: #3A3042;
+    text-shadow: -1px 1px #f1ab86;
+    font-size: 1.5em;
+}
+
+/* footer */
+footer
+{
+    text-align: center;
+    margin-top: 1em;
 }
