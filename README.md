@@ -1,7 +1,7 @@
 # cookie-stand
 
 Cookie Stand
-WEbsite for a local business that sells a salmon cookies.
+Website for a local business that sells a salmon cookies.
 
 Built With
 - VS Code
