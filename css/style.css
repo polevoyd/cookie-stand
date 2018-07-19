@@ -46,11 +46,40 @@ header
 .data
 {
     /* border: 1px solid #3A3042; */
-    font-size: 2em;
+    font-size: 1em;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     color: #c57b57;
-    text-shadow: -1px 2px #3A3042;
+    text-shadow: -1px 1px #3A3042;
+    display: inline;
+}
+
+.products
+{
+    margin: 1em 1em 1em 1em;
+    margin-bottom: 4em;
+}
+
+.pics_borders
+{
+    height: 100px;
+    width: 150px;
+    margin-right: 1em;
+}
+
+.product_box
+{
+    width: 100%;
+    border: 5px solid #f1ab86;
+    border-radius: 1em;
+    padding: 1em 1em 3em 1em;
+    margin: 1em;
+}
+
+
+p
+{
+    padding-top: 0.25em;
 }
 
 tr:first-child
@@ -73,11 +102,6 @@ table, th, td
     /* border-spacing: 1em; */
     
 
-}
-
-input, label {
-    /* can be in a block display or inline */
-    /* display:block; */
 }
 
 h2
@@ -103,26 +127,53 @@ h1
     font-size: 2em;
 }
 
-
-
 body
 {
     background: #EDFFD9;
-}
-
-
-section
-{
-    display: block;
 }
 
 .tablepic
 {
     height: 2em;
     width: 6em;
+    border:solid 1em #3A3042;
 }
 
 ul, li
 {
-    display: inline-table;
+    margin: 1em 1em 1em 1em;
+}
+
+/* locations section */
+.location
+{
+    display: flex;
+    list-style: none;
+    text-align: center;
+    border: #3A3042;
+}
+
+/* quotes from a clients */
+.quotes
+{
+    display: flex;
+    list-style: none;
+    text-align: center;
+    border: #3A3042;
+}
+ /* each particular quote  */
+.quotes_elements
+{
+    font-style: italic;
+    font-family: 'Gaegu', cursive;
+    color: #3A3042;
+    text-shadow: -1px 1px #f1ab86;
+    font-size: 1.5em;
+}
+
+/* footer */
+footer
+{
+    text-align: center;
+    margin-top: 1em;
 }
