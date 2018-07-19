@@ -1,3 +1,17 @@
+/* 
+251605 brown
+c57b57 deer
+f1ab86 tumbleweed
+f7dba7 tuscan
+9cafb7  
+
+locations with addresses, hours open, contact information, 
+
+About Us (company history and mission), 
+Merchandise (sales of t-shirts, mugs, stickers, etc.)
+*/
+
+
 header
 {
     display: flex;
@@ -35,7 +49,7 @@ header
     font-size: 2em;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
-    color: #FF784F;
+    color: #c57b57;
     text-shadow: -1px 2px #3A3042;
 }
 
@@ -78,14 +92,14 @@ h1
     font-size: 5em;
     text-align: center;
     color: #3A3042;
-    text-shadow: -5px 5px #FF784F;
+    text-shadow: -5px 5px #f1ab86;
 }
 
 .text
 {
     font-family: Georgia, 'Times New Roman', Times, serif;
-    color: #DB9D47;
-    text-shadow: -1px 1px #3A3042;
+    color: #f1ab86;
+    text-shadow: -1px 1px #251605;
     font-size: 2em;
 }
 
@@ -94,4 +108,21 @@ h1
 body
 {
     background: #EDFFD9;
+}
+
+
+section
+{
+    display: block;
+}
+
+.tablepic
+{
+    height: 2em;
+    width: 6em;
+}
+
+ul, li
+{
+    display: inline-table;
 }
