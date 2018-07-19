@@ -10,7 +10,7 @@
 
 .data
 {
-    
+    /* border: 1px solid #3A3042; */
     font-size: 2em;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
@@ -25,14 +25,33 @@ tr:first-child
 
 table, th, td 
 {
+    margin-top: 2em;
+    margin-bottom: 2em;
     border: 1px solid black;
     border-collapse: collapse;
     color: black;
     font-family: Arial, Helvetica, sans-serif;
-  
+    width: 100em;
+    height: 2em;
+    text-align: center;
+    vertical-align: middle;
+    /* border-spacing: 1em; */
 
 }
 
+input, label {
+    /* can be in a block display or inline */
+    /* display:block; */
+}
+
+
+
+h2
+{
+    margin: 1em 1em 1em 1em;
+    font-size: 1.5em;
+    
+}
 h1
 {
     font-family: 'Gaegu', cursive;
