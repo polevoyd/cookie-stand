@@ -140,6 +140,16 @@ function renderStore(storeObj)
   tableElement.appendChild(trElement);
 }
 
+//--------------------render all stores
+function renderAllStores()
+{
+  // render each store
+  for (var st of storesArr)
+  {
+    renderStore(st);
+  }
+}
+
 /*******************************************************************************************/
 /*************************************FORMS CONNECTING**************************************/
 /*******************************************************************************************/
@@ -179,11 +189,9 @@ var tableElement = document.getElementById('storesData');
 // render a table head
 renderTableHead(tableElement);
 
-// render each store
-for (var st of storesArr)
-{
-  renderStore(st);
-}
+
+
+renderAllStores();
 
 // render a table footer
 renderTableFooter(tableElement);
